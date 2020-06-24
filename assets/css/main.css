@@ -35,8 +35,9 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
-	height: 100%;
+	position: relative;
 	overflow-y: hidden;
+
 	
 }
 
@@ -99,6 +100,8 @@ input, select, textarea {
 
 		html, body {
 			min-width: 320px;
+			overflow-y: hidden;
+
 		}
 
 	}
@@ -1254,7 +1257,7 @@ input, select, textarea {
 		background-image: -ms-radial-gradient(rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 55%);
 		background-image: radial-gradient(rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 55%);
 		max-width: 100%;
-		padding-bottom: 70px;
+		padding-bottom: 7.5rem;
 		text-align: center;
 	}
 
