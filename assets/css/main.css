@@ -110,7 +110,7 @@ input, select, textarea {
 	}
 
 	body {
-		background-image: url("../../images/a.jpg");
+		background-image: url("../../images/background.jpg");
 		background-color: #080c18;
 
 	}
@@ -732,7 +732,6 @@ input, select, textarea {
 	ul {
 		list-style: disc;
 		margin: 0 0 2rem 0;
-		padding-left: 1em;
 	}
 
 		ul li {
@@ -1253,6 +1252,7 @@ input, select, textarea {
 		background-image: -ms-radial-gradient(rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 55%);
 		background-image: radial-gradient(rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 55%);
 		max-width: 100%;
+		padding-bottom: 50px;
 		text-align: center;
 	}
 
@@ -1333,12 +1333,11 @@ input, select, textarea {
 			display: -moz-flex;
 			display: -webkit-flex;
 			display: -ms-flex;
-			display: flex;
+			display:  block;
 			margin-bottom: 0;
 			list-style: none;
-			padding-left: 30px;
 			border: solid 1px #ffffff;
-			border-radius: 4px;
+			border-radius: 5px;
 		}
 
 			#header nav ul li {
@@ -1355,7 +1354,7 @@ input, select, textarea {
 					min-width: 7.5rem;
 					height: 2.75rem;
 					line-height: 2.75rem;
-					padding: 0 1.25rem 0 1.45rem;
+					padding: 0 1.75rem 0 1.75rem;
 					text-transform: uppercase;
 					letter-spacing: 0.2rem;
 					font-size: 0.8rem;
