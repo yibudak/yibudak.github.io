@@ -111,6 +111,8 @@ input, select, textarea {
 
 	body {
 		background-image: url("../../images/a.jpg");
+		background-color: #080c18;
+
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
