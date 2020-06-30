@@ -16,7 +16,7 @@ body {
   padding: 0;
   background: $body-background url("../assets/bkg.png") 0 0;
   color: $body-foreground;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
 }
@@ -65,7 +65,7 @@ header {
 }
 
 header h1 {
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1.5;
   margin: 0;
   text-align: center;
@@ -236,7 +236,7 @@ hr {
 
 a {
   color: $conifer;
-  text-shadow: 0 0 3px rgba(0, 0, 0, 1);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 1);
 }
 
 a:active, a:focus {
