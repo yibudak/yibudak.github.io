@@ -12,11 +12,11 @@ here's our challenge:
 
 sombrero is 16 kb malware and has hashed name. to speed up the solution i'll change its name to sombrero.
 
-![image](post_resources/sombrero/changename.png){:class=".postimg"}
+![image](post_resources/sombrero/changename.png){:.postimg}
 
 then i upload the file on virustotal for basic and first analysis.
 
-![image](post_resources/sombrero/virustotal.png){:class=".postimg"}
+![image](post_resources/sombrero/virustotal.png){:.postimg}
 
 virustotal says the file is compiled for OSX on ARM architecture. this could be super basic analysis but we got the useful information about our challenge, with this info i decided that sombrero is an iOS malware. my road map would be like that;
 
@@ -28,24 +28,24 @@ virustotal says the file is compiled for OSX on ARM architecture. this could be 
 
 after i decided my road map, let's dig into it. firstly i'm using IDA as disassembler because of its simplicity.
 
-![image](post_resources/sombrero/ida.png){:class=".postimg"}
+![image](post_resources/sombrero/ida.png){:.postimg}
 
 but as we can see at above IDA couldn't handle to disassemble the malware. it seems like we need to find a disassembler that works for ARM architecture, i'm switching to objdump. that would be enough for this mission but in order to use it as ARM disassembler we have to install GNU ToolChain for ARM packages with following commands as shown below.
 
-![image](post_resources/sombrero/installpackages.png){:class=".postimg"}
+![image](post_resources/sombrero/installpackages.png){:.postimg}
 
 after that let's disassemble sombrero. 
 
-![image](post_resources/sombrero/objdump.png){:class=".postimg"}
+![image](post_resources/sombrero/objdump.png){:.postimg}
 
 so far so good… now let's dig into messy part of this challenge. we need to find similar payload with trial and error method so metasploit would help us about that. i'm listing paylods with "show payloads" command and searching the proper malware that fits sombrero's characteristic.
 
 
-![image](post_resources/sombrero/payload.png){:class=".postimg"}
+![image](post_resources/sombrero/payload.png){:.postimg}
 
 creating my own malware…
 
-![image](post_resources/sombrero/msfconsole.png){:class=".postimg"}
+![image](post_resources/sombrero/msfconsole.png){:.postimg}
 
 there is one thing important here. i need to know my payload's listen IP in hex format so i'll find it in assembly instructions.
 
@@ -53,17 +53,17 @@ there is one thing important here. i need to know my payload's listen IP in hex 
 
 i named my payload as "sample" and now i got two disassembled malware.
 
-![image](post_resources/sombrero/compare.png){:class=".postimg"}
+![image](post_resources/sombrero/compare.png){:.postimg}
 
 attention to size, we are lucky! now we need to find IP address in instructions and do comparison between two malwares.
 
 sampleAssembly:
 
-![image](post_resources/sombrero/sampleassembly.png){:class=".postimg"}
+![image](post_resources/sombrero/sampleassembly.png){:.postimg}
 
 sombreroAssembly:
 
-![image](post_resources/sombrero/sombreroassembly.png){:class=".postimg"}
+![image](post_resources/sombrero/sombreroassembly.png){:.postimg}
 
 Ta daa!!
 
