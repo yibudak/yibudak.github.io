@@ -3,12 +3,11 @@ layout: page
 title: yibudak | about
 ---
 
-blablabla.
+hey there,
 
 ![image](about/photo.jpg){: style="float: right"}
 
-Text can be bold, italic, strikethrough or keyword. Link to another page. There should be whitespace between paragraphs. There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project. Header 1 This is a normal paragraph following a header. 
-
+yiğit budak here, a computer engineering (science) student. i'm posting interesting things about cyber security and reverse engineering.
 
 ## [](#header-2)contact me
 *	[e-mail](mailto:yigit@outlook.com)
