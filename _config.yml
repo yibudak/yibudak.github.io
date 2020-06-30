@@ -1,6 +1,6 @@
 title: yibudak | CEng Student
 description: "Personal Blog for yibudak"
-lang: en
+
 author:
   name: "yibudak"
   email: "yigit@outlook.com"
@@ -10,6 +10,8 @@ baseurl: /
 
 source: .
 destination: ./_site
+lang: en
+languages: ["en", "tr"]
 permalink: /:title
 paginate: 3
 paginate_path: /page/:num/
