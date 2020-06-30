@@ -91,13 +91,21 @@ header h2 {
 #main_content {
   width: 100%;
   -webkit-font-smoothing: antialiased;
-}
+
 section img {
   width: 50%;
   border: 1px dashed rgba(181, 232, 83, 1);
   padding: 8px;
   border-radius: 3px;
   margin-left: 25%;
+}
+
+.aboutimg{
+
+  border: 1px dashed rgba(181, 232, 83, 1);
+  padding: 8px;
+  border-radius: 3px;
+
 }
 
 h1, h2, h3, h4, h5, h6 {

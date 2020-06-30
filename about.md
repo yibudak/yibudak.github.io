@@ -3,7 +3,8 @@ layout: page
 title: yibudak | about
 ---
 
-<img src="https://yibudak.github.io/post_resources/about/photo.jpg" width="230" height="230" style="float: right">
+
+{:.aboutimg}![image](post_resources/about/photo.jpg){: style="float: right"}
 hey there,
 yiğit budak here, a computer engineering (science) student. i'm posting interesting things about cyber security and reverse engineering.
 
