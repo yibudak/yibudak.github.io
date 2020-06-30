@@ -26,7 +26,7 @@ title: yibudak | archive
           <ul>
         {% endif %}
       {% endunless %}
-        <li><time>{{ post.date | date:"%d %b" | downcase }} - </time>
+        <li><time>{{ post.date | date:"%d %b" }} - </time>
           <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
             {{ post.title }}
           </a>
