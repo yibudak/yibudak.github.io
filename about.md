@@ -3,9 +3,10 @@ layout: page
 title: yibudak | about
 ---
 
-
-![](post_resources/about/photo.jpg){:class=".aboutimg"}
 hey there,
+
+![image](post_resources/about/photo.jpg){: style="float: right"}
+
 yiğit budak here, a computer engineering (science) student. i'm posting interesting things about cyber security and reverse engineering.
 
 ## [](#header-2)contact me
