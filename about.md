@@ -1,6 +1,6 @@
 ---
 layout: page
-title: yibudak | about
+title: yibudak &#124; about
 ---
 
 hey there,

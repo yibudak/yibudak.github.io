@@ -1,6 +1,6 @@
 ---
 layout: page
-title: yibudak | archive
+title: yibudak &#124; archive
 ---
 
 <section>
