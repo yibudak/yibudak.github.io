@@ -7,10 +7,9 @@ blablabla.
 
 
 ## [](#header-2)contact me
-*	mailto:yigit@outlook.com
-*	github.com/yibudak
-*	t.me/yibudak
-*	linkedin.com/in/yi%C4%9Fit-budak-a1288615b/
-*	app.priviahub.com/profile/yibudak
-*	hackthebox.eu/profile/198235
-*	[telegram](t.me/yibudak)
+*	[e-mail](mailto:yigit@outlook.com)
+*	[github](https://www.github.com/yibudak)
+*	[linkedin](https://www.linkedin.com/in/yi%C4%9Fit-budak-a1288615b/)
+*	[telegram](https://t.me/yibudak)
+*	[priviahub](https://app.priviahub.com/profile/yibudak)
+*	[hackthebox](https://www.hackthebox.eu/profile/198235)
