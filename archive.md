@@ -9,7 +9,7 @@ title: yibudak | archive
     {% capture currentyear %}{{ 'now' | date: "%Y" }}{% endcapture %}
     {% capture firstpostyear %}{{ site.posts[0].date | date: '%Y' }}{% endcapture %}
     {% if currentyear == firstpostyear %}
-        <h3>This year's posts</h3>
+        <h3>this year's posts</h3>
     {% else %}  
         <h3>{{ firstpostyear }}</h3>
     {% endif %}
@@ -26,7 +26,7 @@ title: yibudak | archive
           <ul>
         {% endif %}
       {% endunless %}
-        <li><time>{{ post.date | date:"%d %b" }} - </time>
+        <li><time>{{ post.date | date:"%d %b" | downcase }} - </time>
           <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
             {{ post.title }}
           </a>
