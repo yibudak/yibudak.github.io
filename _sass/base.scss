@@ -93,11 +93,11 @@ header h2 {
   -webkit-font-smoothing: antialiased;
 }
 section img {
-  width: 50%;
+  
   border: 1px dashed rgba(181, 232, 83, 1);
   padding: 8px;
   border-radius: 3px;
-  margin-left: 25%;
+
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -110,6 +110,11 @@ h1, h2, h3, h4, h5, h6 {
                0 0 10px rgba(181, 232, 83, 0.1);
 }
 
+.postimg {
+
+  width: 50%;
+  margin-left: 25%;
+}
 
 #main_content h1 {
   font-size: 30px;
