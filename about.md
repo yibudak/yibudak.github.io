@@ -4,7 +4,7 @@ title: yibudak | about
 ---
 
 
-![image](post_resources/about/photo.jpg){#.aboutimg}
+![](post_resources/about/photo.jpg){:class=".aboutimg"}
 hey there,
 yiğit budak here, a computer engineering (science) student. i'm posting interesting things about cyber security and reverse engineering.
 
