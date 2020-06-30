@@ -5,7 +5,7 @@ title: yibudak | about
 
 blablabla.
 
-![image](about/photo.jpg){: style="float: right" | width=50%}
+![image](about/photo.jpg){: style="float: right"}
 ## [](#header-2)contact me
 *	[e-mail](mailto:yigit@outlook.com)
 *	[github](https://www.github.com/yibudak)
