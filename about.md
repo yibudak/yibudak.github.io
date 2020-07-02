@@ -5,7 +5,7 @@ title: about
 
 
 
-![image](post_resources/about/photo.jpg){ float: right; }
+![image](post_resources/about/photo.jpg){: style="float:right"}
 
 hey there,
 
