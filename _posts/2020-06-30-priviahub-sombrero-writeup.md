@@ -1,6 +1,7 @@
 ---
-title: {{ [EN] PriviaHub CTF Sombrero Write-Up | markdownify }}
+title: "[EN] PriviaHub CTF Sombrero Write-Up"
 published: true
+date:	2017-04-11 03:00:00
 ---
 hey folks, in this write-up we'll solve CTF named Sombrero in PriviaHub, let's get started!
 
