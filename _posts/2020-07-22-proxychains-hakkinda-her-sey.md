@@ -52,23 +52,23 @@ bunun için `sudo nano /etc/proxychains.conf` komutunu kullanmamız yeterli olac
 
 proxychains.conf dosyası içerisinde ön tanımlı ayarları değiştirmeden kullanabilirsiniz fakat yine de içeriğinden bahsetmekte fayda var. etkinleştirmek istediğiniz satırın başındaki # işaretini silmeniz yeterli.
 
-# [](#header-6)dynamic_chain
+### [](#header-3)dynamic_chain
 
 dynamic_chain seçeneğini aktif ettiğinizde bağlantınız, proxy zincirinizde bulunan ve erişilebilen sunucular üzerinden gerçekleşir. proxy zincirinizde bulunan ve erişilemeyen sunucular pas geçilir. eğer zincirde bulunan bütün sunucular ölü durumdaysa bağlantınız kesilir.
 
-# [](#header-6)strict_chain
+### [](#header-3)strict_chain
 
 strict_chain, proxychains'in ön tanımlı olarak kullandığı seçenektir. proxy zincirinizdeki sunucuları aynı bir zincirmiş gibi kullanır. eğer zincirdeki bir sunucu ölü durumdaysa bağlantınız gerçekleşmez.
 
-# [](#header-6)random_chain
+### [](#header-3)random_chain
 
 bu seçenek ile bağlantınız proxy listenizde bulunan sunucular kullanılarak rastgele üretilmiş zincirler üzerinden gerçekleşir. chain_len ayarını kullanarak oluşturduğunuz rastgele zincirlerin uzunluğunu belirleyebilirsiniz.
 
-# [](#header-6)quiet_mode
+### [](#header-3)quiet_mode
 
 proxychains kullandığınızda yaptığınız her bağlantının sunucular üzerinden nasıl iletildiğini gösterir, bunu debug log olarak düşünebiliriz. nmap gibi yazılımlarda kısa süre içerisinde çok fazla paket gönderildiği için terminal üzerinde kirliliğe sebep olabilir, böyle bir durumda bu seçeneği aktif edebilirsiniz.
 	
-# [](#header-6)proxy_dns
+### [](#header-3)proxy_dns
 
 proxychains'de ön tanımlı olarak aktif bu seçenek, yaptığınız dns sorgularının proxy sunucular üzerinden gerçekleşmesi için kullanılıyor.
 
