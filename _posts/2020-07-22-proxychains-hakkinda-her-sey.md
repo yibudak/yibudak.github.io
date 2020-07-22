@@ -4,14 +4,14 @@ date:	2020-07-22 15:00:00
 published: true
 ---
 
-selamlar, geçenlerde uplink oyununu öğreninirken her saldırıdan önce karmaşık bir ağ bağlantısı yapmam gerektiğini fark ettim ve bunun gerçek hayattaki karşılığı olan bir yazılım arayışına girdim ve karşıma proxychains çıktı.
+selamlar, geçenlerde uplink oyununu öğrenirken her saldırıdan önce karmaşık bir ağ bağlantısı yapmam gerektiğini fark ettim ve bunun gerçek hayattaki karşılığı olan bir yazılım arayışına girdim ve karşıma proxychains çıktı.
 
 
 # [](#header-3)proxychains nedir?
 
 proxychains c dili ile yazılmış açık kaynak kodlu bir yazılımdır, kendisiyle beraber kullanılan programın gönderip/aldığı TCP paketlerini belirlemiş olduğumuz proxy sunucular üzerinden işlenmesini sağlar. başlıca özellikleri şunlardır:
 
-1. socks5, socks4 ve http protekollerini destekler.
+1. socks5, socks4 ve http protokollerini destekler.
 1. aynı anda birden çok bağlantı tipine sahip proxy sunucuları kullanabilir.
 1. dns sorgularını proxy üzerinden gönderebilir.
 1. içeriğinde proxy ayarı olmayan bir yazılımı belirlediğiniz proxy sunucu ile kullanabilirsiniz.
