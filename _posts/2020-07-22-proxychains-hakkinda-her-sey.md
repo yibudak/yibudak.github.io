@@ -46,7 +46,7 @@ proxychains'i nasıl kullanacağımızı öğrendikten sonra proxy sunucularım�
 
 bunun için `sudo nano /etc/proxychains.conf` komutunu kullanmamız yeterli olacaktır.
 
-![image](post_resources/sombrero/config.png){:.postimg}
+![image](post_resources/proxychains/config.png){:.postimg}
 
 proxychains.conf dosyası içerisinde ön tanımlı ayarları değiştirmeden kullanabilirsiniz fakat yine de içeriğinden bahsetmekte fayda var. etkinleştirmek istediğiniz satırın başındaki # işaretini silmeniz yeterli.
 
@@ -72,7 +72,7 @@ proxychains'de ön tanımlı olarak aktif bu seçenek, yaptığınız dns sorgul
 
 # [](#header-3)proxy listesinin ayarlanması
 
-![image](post_resources/sombrero/proxylist.png){:.postimg}
+![image](post_resources/proxychains/proxylist.png){:.postimg}
 
 proxy listesini ayarlamak çok basit, tek yapmamız gereken `protokol` `sunucu adresi` `port` formatında /etc/proxychains.conf dosyasına eklemek. eğer kullandığınız proxy sunucu, kullanıcı adı ve şifre gerektiriyorsa port'un `kullanıcı adı` `şifre` yazmanız yeterli.
 ön tanımlı olarak `socks4 127.0.0.1 9050` adresinin yorum satırından çıkarıldığını görebiliriz. tor ağına bağlanmak için bu ayar bizim için yeterli olacaktır fakat siz kendi istediğiniz bir proxy sunucu eklemek istediğinzde bu satırın altına ekleme yapabilir veya tor sunucusunu yorum satırı haline getirerek devre dışı bırakabilirsiniz.<
@@ -87,14 +87,14 @@ kullandığınız linux dağıtımında tor servisi yoksa `sudo apt-get install 
 
 komutunu kullanarak tor servisini aktif etmeniz gerekiyor. artık proxychains'i tor ağıyla birlikte kullanabiliriz.
 
-![image](post_resources/sombrero/tordig.png){:.postimg}
+![image](post_resources/proxychains/tordig.png){:.postimg}
 
 
 # [](#header-3)proxychains'i nmap ile birlikte kullanmak
 
 proxychains'i diğer yazılımlarla birlikte kullanabileceğimizden bahsettim, yazıyı da bir örnekle bitirmek istedim. aşağıdaki görselde "scanme.nmap.org" üzerinde uygulamasını görebilirsiniz.
 
-![image](post_resources/sombrero/nmap.gif){:.postimg}
+![image](post_resources/proxychains/nmap.gif){:.postimg}
 
 
 # [](#header-3)son sözler
