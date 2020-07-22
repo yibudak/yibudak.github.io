@@ -1,5 +1,5 @@
 ---
-title: `[EN]` PriviaHub CTF Sombrero Write-Up
+title: \*[EN]\* PriviaHub CTF Sombrero Write-Up
 published: true
 ---
 hey folks, in this write-up we'll solve CTF named Sombrero in PriviaHub, let's get started!
