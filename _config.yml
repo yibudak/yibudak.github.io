@@ -30,6 +30,6 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
 
-# Custom variables
+# Custom variable
 owner : "yibudak"
 year : "2020"
