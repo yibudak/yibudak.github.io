@@ -4,7 +4,7 @@ date:	2020-09-22 10:00:00
 published: true
 ---
 
-![image](post_resources/devilbox/banner.png){:.postimg}
+![image](post_resources/devilbox/header.png){:.postimg}
 
 
 Merhaba, web uygulamaları için Ubuntu üzerinde XAMPP kullanmayı denemiştim fakat Linux'da çok da sağlıklı çalışmadığını fark ettim, çoğu zaman servisler kendi kendini kapatıyor veya yeniden başlıyordu. Durum böyle olunca ben de alternatif bir yazılım arayışına girdim ve karşıma Docker üzerinde çalışan bir mühendislik harikası çıktı, onun adı Devilbox. :)
