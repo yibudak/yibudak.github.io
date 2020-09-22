@@ -14,11 +14,11 @@ Merhaba, web uygulamaları için Ubuntu üzerinde XAMPP kullanmayı denemiştim 
 
 Devilbox, Docker'a sahip bütün cihazlarda ve işletim sistemlerinde çalışır. Başlıca özellikleri ise şunlardır:
 
-1. HTTPS desteğine sahip.
-1. Teorik olarak sınırsız sayıda web uygulaması çalıştırabilirsiniz.
-1. Her proje için özel domain atanabilir. (wordpress.proje, prestashop.proje gibi)
-1. Bir proje eklediğinizde sistemi yenilemeye gerek yok, kendisi otomatik olarak projenizi canlandırıyor.
-1. Sadece tek bir ayar dosyasını düzenleyerek servislerin onlarca farklı sürümünü kullanabilirsiniz.
+* HTTPS desteğine sahip.
+* Teorik olarak sınırsız sayıda web uygulaması çalıştırabilirsiniz.
+* Her proje için özel domain atanabilir. (wordpress.proje, prestashop.proje gibi)
+* Bir proje eklediğinizde sistemi yenilemeye gerek yok, kendisi otomatik olarak projenizi canlandırıyor.
+* Sadece tek bir ayar dosyasını düzenleyerek servislerin onlarca farklı sürümünü kullanabilirsiniz.
 
 
 ![image](post_resources/devilbox/diagram.png){:.postimg}
@@ -54,7 +54,7 @@ Bütün bunları yaptıktan sonra Devilbox içerisinden 'Virtual Hosts' sekmesin
 
 Tek yapmanız gereken `sudo nano /etc/hosts` komutunu kullanarak hosts dosyanıza;
 
-1. 127.0.0.1	projeAdi.loc
+* 127.0.0.1	projeAdi.loc
 
 kaydını eklemek. Bu pencereden sırasıyla CTRL+X ve Shift+Y tuşlarına basarak çıkın. 
 
@@ -67,7 +67,7 @@ Hata çözüldü, artık linke tıklayarak veya domain ismini adres çubuğuna y
 1. Devilbox klasörü içerisinde `sudo ./shell.sh` komutunu kullanarak konteyner terminaline erişebilirsiniz. Böylece 'mysql' gibi komutları kullanabilirsiniz.
 1. Devilbox klasörü içerisinde bulunan `.env` dosyasını düzenleyerek istediğiniz servisin istediğiniz versiyonunu kullanabilirsiniz, ayrıca domain uzantısını değiştirmek gibi birçok ayara sahip.
 
-# [](#header-3)son sözler
+# [](#header-3)Son Sözler
 
 Özellikle macOS ve Linux'da can sıkıcı olan XAMPP'a çok güzel bir alternatiften bahsettik. Ayrıca Devilbox gibi basit ama etkili yazılımlar Docker dünyasına dalış yapmak için güzel bir yol. Kendinize iyi bakın!
 
