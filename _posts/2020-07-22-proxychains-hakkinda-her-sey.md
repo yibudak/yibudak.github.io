@@ -11,10 +11,10 @@ selamlar, geçenlerde uplink oyununu öğrenirken her saldırıdan önce karmaş
 
 proxychains c dili ile yazılmış açık kaynak kodlu bir yazılımdır, kendisiyle beraber kullanılan programın gönderip/aldığı TCP paketlerini belirlemiş olduğumuz proxy sunucular üzerinden işlenmesini sağlar. başlıca özellikleri şunlardır:
 
-1. socks5, socks4 ve http protokollerini destekler.
-1. aynı anda birden çok bağlantı tipine sahip proxy sunucuları kullanabilir.
-1. dns sorgularını proxy üzerinden gönderebilir.
-1. içeriğinde proxy ayarı olmayan bir yazılımı belirlediğiniz proxy sunucu ile kullanabilirsiniz.
+* socks5, socks4 ve http protokollerini destekler.
+* aynı anda birden çok bağlantı tipine sahip proxy sunucuları kullanabilir.
+* dns sorgularını proxy üzerinden gönderebilir.
+* içeriğinde proxy ayarı olmayan bir yazılımı belirlediğiniz proxy sunucu ile kullanabilirsiniz.
 
 eğer kullandığınız linux dağıtımında proxychains yok ise aşağıdaki komutu kullanarak yükleyebilirsiniz:
 
@@ -22,10 +22,10 @@ eğer kullandığınız linux dağıtımında proxychains yok ise aşağıdaki k
 
 # [](#header-3)proxychains'i nerede kullanırız?
 
-1. kısıtlı bir intranet ağında erişilemeyen adreslere erişmek için. buna örnek olarak ülkemizde yasaklanan web sitelerine erişmek verilebilir.
-1. ağınızdaki güvenlik duvarının engellediği portlar üzerinden iletişim kurmak için.
-1. birden fazla proxy sunucu kullanarak takip edilebilirliği azaltmak için.
-1. dns sorgularını proxy sunucu üzerinden göndermek için.
+* kısıtlı bir intranet ağında erişilemeyen adreslere erişmek için. buna örnek olarak ülkemizde yasaklanan web sitelerine erişmek verilebilir.
+* ağınızdaki güvenlik duvarının engellediği portlar üzerinden iletişim kurmak için.
+* birden fazla proxy sunucu kullanarak takip edilebilirliği azaltmak için.
+* dns sorgularını proxy sunucu üzerinden göndermek için.
 
 ![image](post_resources/proxychains/diyagram.png){:.postimg}
 
