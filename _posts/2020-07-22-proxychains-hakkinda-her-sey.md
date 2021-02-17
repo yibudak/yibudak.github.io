@@ -76,7 +76,7 @@ proxychains'de ön tanımlı olarak aktif bu seçenek, yaptığınız dns sorgul
 
 ![image](post_resources/proxychains/proxylist.png){:.postimg}
 
-proxy listesini ayarlamak çok basit, tek yapmamız gereken `protokol` `sunucu adresi` `port` formatında /etc/proxychains.conf dosyasına eklemek. eğer kullandığınız proxy sunucu, kullanıcı adı ve şifre gerektiriyorsa port'un `kullanıcı adı` `şifre` yazmanız yeterli.
+proxy listesini ayarlamak çok basit, tek yapmamız gereken `protokol` `sunucu adresi` `port` formatında /etc/proxychains.conf dosyasına eklemek. eğer kullandığınız proxy sunucu, kullanıcı adı ve şifre gerektiriyorsa port'un yanına `kullanıcı adı` `şifre` yazmanız yeterli.
 ön tanımlı olarak `socks4 127.0.0.1 9050` adresinin yorum satırından çıkarıldığını görebiliriz. tor ağına bağlanmak için bu ayar bizim için yeterli olacaktır fakat siz kendi istediğiniz bir proxy sunucu eklemek istediğinzde bu satırın altına ekleme yapabilir veya tor sunucusunu yorum satırı haline getirerek devre dışı bırakabilirsiniz.<
 	
 # [](#header-3)proxychains'in tor ağı ile kullanılması
@@ -101,6 +101,6 @@ proxychains'i diğer yazılımlarla birlikte kullanabileceğimizden bahsettim, y
 
 # [](#header-3)son sözler
 
-oyunlarda ve filmlerde gördüğümüz dünya haritası üzerindeki farklı sunucular kullanılarak yapılan "bağlantılar" gerçek hayatta nasıl oluyor görmüş olduk. proxychains bize internette anonim olmamızı sağlasa da ücretsiz servislerin kullanılması hiçbir zaman güvenli bir yol değildir. ayrıca unutmamak gerekiyor ki ülkemizde yasaklı sitelere erişmek "Türk Ceza Kanunu’nun Mühür bozma başlıklı 203.maddesine" göre suç olarak nitelendirebilir, bilgiyi etik yollarda kullanmak en doğrusudur. kendinize iyi bakın! 
+oyunlarda ve filmlerde gördüğümüz dünya haritası üzerindeki farklı sunucular kullanılarak yapılan "bağlantılar" gerçek hayatta nasıl oluyor görmüş olduk. proxychains bize internette anonim olmamızı sağlasa da ücretsiz servislerin kullanılması hiçbir zaman güvenli bir yol değildir. ayrıca unutmamak gerekiyor ki ülkemizde yasaklı sitelere erişmek Türk Ceza Kanunu’nun Mühür bozma başlıklı 203.maddesine göre suç olarak nitelendirebilir, bilgiyi etik yollarda kullanmak en doğrusudur. kendinize iyi bakın! 
 
 yibudak
