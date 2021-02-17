@@ -9,7 +9,7 @@ title: about
 
 hey there,
 
-yiğit budak here, a computer engineering (science) student. i'm posting interesting things about cyber security and reverse engineering.
+yiğit budak here, a computer engineering (science) student. i'm posting interesting things about python development, cyber security and reverse engineering.
 
 ## [](#header-2)contact me
 *	[e-mail](mailto:yigit@outlook.com)
