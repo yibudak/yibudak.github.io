@@ -1,0 +1,72 @@
+I"�<p><img src="post_resources/devilbox/header.png" alt="image" class="postimg" /></p>
+
+<p>Merhaba, web uygulamaları için Ubuntu üzerinde XAMPP kullanmayı denemiştim fakat Linux’da çok da sağlıklı çalışmadığını fark ettim, çoğu zaman servisler kendi kendini kapatıyor veya yeniden başlıyordu. Durum böyle olunca ben de alternatif bir yazılım arayışına girdim ve karşıma Docker üzerinde çalışan bir mühendislik harikası çıktı, onun adı Devilbox. :)</p>
+
+<h1 id="devilboxın-özellikleri"><a href="#header-3"></a>Devilbox’ın Özellikleri</h1>
+
+<p>Devilbox, Docker’a sahip bütün cihazlarda ve işletim sistemlerinde çalışır. Başlıca özellikleri ise şunlardır:</p>
+
+<ul>
+  <li>HTTPS desteğine sahip.</li>
+  <li>Teorik olarak sınırsız sayıda web uygulaması çalıştırabilirsiniz.</li>
+  <li>Her proje için özel domain atanabilir. (wordpress.proje, prestashop.proje gibi)</li>
+  <li>Bir proje eklediğinizde sistemi yenilemeye gerek yok, kendisi otomatik olarak projenizi canlandırıyor.</li>
+  <li>Sadece tek bir ayar dosyasını düzenleyerek servislerin onlarca farklı sürümünü kullanabilirsiniz.</li>
+</ul>
+
+<p><img src="post_resources/devilbox/diagram.png" alt="image" class="postimg" /></p>
+
+<p>Yukarıda Devilbox’ın çalışmasını gösteren diyagramı görebilirsiniz.</p>
+
+<h1 id="devilbox-kurulumu"><a href="#header-3"></a>Devilbox Kurulumu</h1>
+
+<p>Devilbox kurulumu oldukça basit, aşağıda Linux veya macOS üzerine kurmak için gereken aşamalar mevcut:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">git clone https://github.com/cytopia/devilbox</code> komutunu kullanarak devilbox reposunu indirin.</li>
+  <li><code class="language-plaintext highlighter-rouge">cd devilbox</code> komutu ile indirdiğiniz klasöre girin.</li>
+  <li><code class="language-plaintext highlighter-rouge">cp env-example .env</code> ortam değişkenlerinin bulunduğu dosyayı isimlendirelim, eğer istersek <code class="language-plaintext highlighter-rouge">nano .env</code> komutunu kullanarak parametreleri inceleyip değiştirebilirsiniz.</li>
+  <li><code class="language-plaintext highlighter-rouge">docker-compose up</code> komutu ile yazılımı çalıştırın ve paketleri indirmesini bekleyin, paketler indikten sonra sistemin çalıştığına dair log mesajlarını terminalinizde görebilirsiniz.</li>
+</ol>
+
+<h1 id="devilbox-kullanımı"><a href="#header-3"></a>Devilbox Kullanımı</h1>
+
+<p>Devilbox’ımız çalıştığına göre <code class="language-plaintext highlighter-rouge">localhost/</code> adresine bağlanarak arayüzüne erişebiliriz. Bizi şöyle bir arayüz karşılıyor.</p>
+
+<p><img src="post_resources/devilbox/mainpage.png" alt="image" class="postimg" /></p>
+
+<p>Sisteme projemizi eklememiz için <code class="language-plaintext highlighter-rouge">devilbox/data/www</code> dizini içerisine proje klasörümüzü oluşturuyoruz. Sonrasında ise proje klasörümüzün içinde htdocs adlı yeni bir klasör oluşturup dosyalarımızı bu htdocs’un içine atıyoruz.</p>
+
+<p>Örnek olarak işin sonunda index.php dosyamız şöyle bir dizinin içinde olması gerekiyor.</p>
+
+<p><code class="language-plaintext highlighter-rouge">devilbox/data/www/projeAdi/htdocs/index.php</code></p>
+
+<p>Bütün bunları yaptıktan sonra Devilbox içerisinden ‘Virtual Hosts’ sekmesine tıkladığımızda aşağıdaki gibi bir hatayla karşılacağız, bunun çözümü ise çok basit.</p>
+
+<p><img src="post_resources/devilbox/error.png" alt="image" class="postimg" /></p>
+
+<p>Tek yapmanız gereken <code class="language-plaintext highlighter-rouge">sudo nano /etc/hosts</code> komutunu kullanarak hosts dosyanıza;</p>
+
+<ul>
+  <li>127.0.0.1	projeAdi.loc</li>
+</ul>
+
+<p>kaydını eklemek. Bu pencereden sırasıyla CTRL+X ve Shift+Y tuşlarına basarak çıkın.</p>
+
+<p><img src="post_resources/devilbox/problemsolved.png" alt="image" class="postimg" /></p>
+
+<p>Hata çözüldü, artık linke tıklayarak veya domain ismini adres çubuğuna yazarak web uygulamanıza erişebilirsiniz.</p>
+
+<h1 id="ekstra-bilgiler"><a href="#header-3"></a>Ekstra Bilgiler</h1>
+
+<ol>
+  <li>Devilbox klasörü içerisinde <code class="language-plaintext highlighter-rouge">sudo ./shell.sh</code> komutunu kullanarak konteyner terminaline erişebilirsiniz. Böylece ‘mysql’ gibi komutları kullanabilirsiniz.</li>
+  <li>Devilbox klasörü içerisinde bulunan <code class="language-plaintext highlighter-rouge">.env</code> dosyasını düzenleyerek istediğiniz servisin istediğiniz versiyonunu kullanabilirsiniz, ayrıca domain uzantısını değiştirmek gibi birçok ayara sahip.</li>
+</ol>
+
+<h1 id="son-sözler"><a href="#header-3"></a>Son Sözler</h1>
+
+<p>Özellikle macOS ve Linux’da can sıkıcı olan XAMPP’a çok güzel bir alternatiften bahsettik. Ayrıca Devilbox gibi basit ama etkili yazılımlar Docker dünyasına dalış yapmak için güzel bir yol. Kendinize iyi bakın!</p>
+
+<p>yibudak</p>
+:ET

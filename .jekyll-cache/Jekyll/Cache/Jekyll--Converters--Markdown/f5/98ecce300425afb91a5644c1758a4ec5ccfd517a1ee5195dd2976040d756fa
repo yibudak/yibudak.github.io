@@ -1,0 +1,101 @@
+I"�<p>selamlar, geçenlerde uplink oyununu öğrenirken her saldırıdan önce karmaşık bir ağ bağlantısı yapmam gerektiğini fark ettim ve bunun gerçek hayattaki karşılığı olan bir yazılım arayışına girdim ve karşıma proxychains çıktı.</p>
+
+<h1 id="proxychains-nedir"><a href="#header-3"></a>proxychains nedir?</h1>
+
+<p>proxychains c dili ile yazılmış açık kaynak kodlu bir yazılımdır, kendisiyle beraber kullanılan programın gönderip/aldığı TCP paketlerini belirlemiş olduğumuz proxy sunucular üzerinden işlenmesini sağlar. başlıca özellikleri şunlardır:</p>
+
+<ul>
+  <li>socks5, socks4 ve http protokollerini destekler.</li>
+  <li>aynı anda birden çok bağlantı tipine sahip proxy sunucuları kullanabilir.</li>
+  <li>dns sorgularını proxy üzerinden gönderebilir.</li>
+  <li>içeriğinde proxy ayarı olmayan bir yazılımı belirlediğiniz proxy sunucu ile kullanabilirsiniz.</li>
+</ul>
+
+<p>eğer kullandığınız linux dağıtımında proxychains yok ise aşağıdaki komutu kullanarak yükleyebilirsiniz:</p>
+
+<p><code class="language-plaintext highlighter-rouge">sudo apt-get install proxychains</code></p>
+
+<h1 id="proxychainsi-nerede-kullanırız"><a href="#header-3"></a>proxychains’i nerede kullanırız?</h1>
+
+<ul>
+  <li>kısıtlı bir intranet ağında erişilemeyen adreslere erişmek için. buna örnek olarak ülkemizde yasaklanan web sitelerine erişmek verilebilir.</li>
+  <li>ağınızdaki güvenlik duvarının engellediği portlar üzerinden iletişim kurmak için.</li>
+  <li>birden fazla proxy sunucu kullanarak takip edilebilirliği azaltmak için.</li>
+  <li>dns sorgularını proxy sunucu üzerinden göndermek için.</li>
+</ul>
+
+<p><img src="post_resources/proxychains/diyagram.png" alt="image" class="postimg" /></p>
+
+<h1 id="proxychains-sözdizimi"><a href="#header-3"></a>proxychains sözdizimi</h1>
+
+<p>proxychains’i biz sistemimizde bulunan diğer yazılımlarla birlikte kullanabiliriz. bunun için yapmamız gereken işlem çok basit:</p>
+
+<p><img src="post_resources/proxychains/syntax.png" alt="image" class="postimg" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">proxychains nmap scanme.nmap.org</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">proxychains firefox</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">proxychains /bin/sh</code></p>
+
+<h1 id="proxychainsin-ayarlanması"><a href="#header-3"></a>proxychains’in ayarlanması</h1>
+
+<p>proxychains’i nasıl kullanacağımızı öğrendikten sonra proxy sunucularımızı eklemek ve gereken ayarları yapmak için <code class="language-plaintext highlighter-rouge">/etc/proxychains.conf</code> dosyasını düzenlememiz gerekiyor.</p>
+
+<p>bunun için <code class="language-plaintext highlighter-rouge">sudo nano /etc/proxychains.conf</code> komutunu kullanmamız yeterli olacaktır.</p>
+
+<p><img src="post_resources/proxychains/config.png" alt="image" class="postimg" /></p>
+
+<p>proxychains.conf dosyası içerisinde ön tanımlı ayarları değiştirmeden kullanabilirsiniz fakat yine de içeriğinden bahsetmekte fayda var. etkinleştirmek istediğiniz satırın başındaki # işaretini silmeniz yeterli.</p>
+
+<h3 id="dynamic_chain"><a href="#header-3"></a>dynamic_chain</h3>
+
+<p>dynamic_chain seçeneğini aktif ettiğinizde bağlantınız, proxy zincirinizde bulunan ve erişilebilen sunucular üzerinden gerçekleşir. proxy zincirinizde bulunan ve erişilemeyen sunucular pas geçilir. eğer zincirde bulunan bütün sunucular ölü durumdaysa bağlantınız kesilir.</p>
+
+<h3 id="strict_chain"><a href="#header-3"></a>strict_chain</h3>
+
+<p>strict_chain, proxychains’in ön tanımlı olarak kullandığı seçenektir. proxy zincirinizdeki sunucuları aynı bir zincirmiş gibi kullanır. eğer zincirdeki bir sunucu ölü durumdaysa bağlantınız gerçekleşmez.</p>
+
+<h3 id="random_chain"><a href="#header-3"></a>random_chain</h3>
+
+<p>bu seçenek ile bağlantınız proxy listenizde bulunan sunucular kullanılarak rastgele üretilmiş zincirler üzerinden gerçekleşir. chain_len ayarını kullanarak oluşturduğunuz rastgele zincirlerin uzunluğunu belirleyebilirsiniz.</p>
+
+<h3 id="quiet_mode"><a href="#header-3"></a>quiet_mode</h3>
+
+<p>proxychains kullandığınızda yaptığınız her bağlantının sunucular üzerinden nasıl iletildiğini gösterir, bunu debug log olarak düşünebiliriz. nmap gibi yazılımlarda kısa süre içerisinde çok fazla paket gönderildiği için terminal üzerinde kirliliğe sebep olabilir, böyle bir durumda bu seçeneği aktif edebilirsiniz.</p>
+
+<h3 id="proxy_dns"><a href="#header-3"></a>proxy_dns</h3>
+
+<p>proxychains’de ön tanımlı olarak aktif bu seçenek, yaptığınız dns sorgularının proxy sunucular üzerinden gerçekleşmesi için kullanılıyor.</p>
+
+<h1 id="proxy-listesinin-ayarlanması"><a href="#header-3"></a>proxy listesinin ayarlanması</h1>
+
+<p><img src="post_resources/proxychains/proxylist.png" alt="image" class="postimg" /></p>
+
+<p>proxy listesini ayarlamak çok basit, tek yapmamız gereken <code class="language-plaintext highlighter-rouge">protokol</code> <code class="language-plaintext highlighter-rouge">sunucu adresi</code> <code class="language-plaintext highlighter-rouge">port</code> formatında /etc/proxychains.conf dosyasına eklemek. eğer kullandığınız proxy sunucu, kullanıcı adı ve şifre gerektiriyorsa port’un yanına <code class="language-plaintext highlighter-rouge">kullanıcı adı</code> <code class="language-plaintext highlighter-rouge">şifre</code> yazmanız yeterli.
+ön tanımlı olarak <code class="language-plaintext highlighter-rouge">socks4 127.0.0.1 9050</code> adresinin yorum satırından çıkarıldığını görebiliriz. tor ağına bağlanmak için bu ayar bizim için yeterli olacaktır fakat siz kendi istediğiniz bir proxy sunucu eklemek istediğinzde bu satırın altına ekleme yapabilir veya tor sunucusunu yorum satırı haline getirerek devre dışı bırakabilirsiniz.&lt;</p>
+
+<h1 id="proxychainsin-tor-ağı-ile-kullanılması"><a href="#header-3"></a>proxychains’in tor ağı ile kullanılması</h1>
+
+<p>tor ağı günümüzde ücretsiz olarak yüksek gizlilik sağlayan bir servistir. yukarıda da belirttiğim üzere proxychains ön tanımlı olarak tor ağıyla çalışacak şekilde gelir, bunun için tek yapmamız gereken şey terminal üzerinden <code class="language-plaintext highlighter-rouge">tor</code> servisini başlatmaktır.</p>
+
+<p>kullandığınız linux dağıtımında tor servisi yoksa <code class="language-plaintext highlighter-rouge">sudo apt-get install tor</code> komutunu kullanarak yükleyebilirsiniz. sonrasında ise:</p>
+
+<p><code class="language-plaintext highlighter-rouge">sudo service tor start</code></p>
+
+<p>komutunu kullanarak tor servisini aktif etmeniz gerekiyor. artık proxychains’i tor ağıyla birlikte kullanabiliriz.</p>
+
+<p><img src="post_resources/proxychains/tordig.png" alt="image" class="postimg" /></p>
+
+<h1 id="proxychainsi-nmap-ile-birlikte-kullanmak"><a href="#header-3"></a>proxychains’i nmap ile birlikte kullanmak</h1>
+
+<p>proxychains’i diğer yazılımlarla birlikte kullanabileceğimizden bahsettim, yazıyı da bir örnekle bitirmek istedim. aşağıdaki görselde “scanme.nmap.org” üzerinde uygulamasını görebilirsiniz.</p>
+
+<p><img src="post_resources/proxychains/nmap.gif" alt="image" class="postimg" /></p>
+
+<h1 id="son-sözler"><a href="#header-3"></a>son sözler</h1>
+
+<p>oyunlarda ve filmlerde gördüğümüz dünya haritası üzerindeki farklı sunucular kullanılarak yapılan “bağlantılar” gerçek hayatta nasıl oluyor görmüş olduk. proxychains bize internette anonim olmamızı sağlasa da ücretsiz servislerin kullanılması hiçbir zaman güvenli bir yol değildir. ayrıca unutmamak gerekiyor ki ülkemizde yasaklı sitelere erişmek Türk Ceza Kanunu’nun Mühür bozma başlıklı 203.maddesine göre suç olarak nitelendirebilir, bilgiyi etik yollarda kullanmak en doğrusudur. kendinize iyi bakın!</p>
+
+<p>yibudak</p>
+:ET

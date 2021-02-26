@@ -1,0 +1,103 @@
+I"t#<p><img src="post_resources/python-veri-cekme/head.png" alt="image" class="postimg" /></p>
+
+<p>Merhaba, Python kullanarak veri madenciliği (web scraping) yapmak günümüzün popüler konularından bir tanesi. Hem gelişmiş kütüphaneler, hem de Python söz diziminin diğer dillere göre nispeten daha kolay olmasından dolayı Python bu işte çok yetenekli. İnternetteki verinin değeri ise paha biçilemez seviyeye gelmiş durumda. Böylesine bir madenin en hızlı nasıl kazılacağını bu yazımda sizlere bahsettim. Keyifli okumalar dilerim.</p>
+
+<h1 id="http-istemcileri-http-clients"><a href="#header-3"></a>HTTP istemcileri (HTTP clients)</h1>
+
+<p>Python’da birçok HTTP istemcisi bulunuyor. Bunlardan bazıları;</p>
+
+<ol>
+  <li>Requests (en yaygın kullanılan)</li>
+  <li>Urllib</li>
+  <li>PycURL</li>
+  <li>Faster-than-request (en hızlısı fakat gelişmesi lazım)</li>
+</ol>
+
+<p>Aralarında en kararlı çalışan <code class="language-plaintext highlighter-rouge">requests</code> modülü olduğu için bu yazıda onu kullanacağız.</p>
+
+<h1 id="çalıştırma-yöntemleri"><a href="#header-3"></a>Çalıştırma yöntemleri</h1>
+
+<p>Aslında bize zaman kazandıracak olay burada başlıyor. Kodumuzu çalıştıracağımız yöntem türüne göre veri hızı inanılmaz boyutta artıyor. Dilerseniz yöntemlerden ve detaylarından bahsedelim. En hızlıdan, en yavaşa sıralayacak olursak.</p>
+
+<ol>
+  <li>aiohttp ile asenkron çalıştırmak.</li>
+  <li>concurrent.futures ile paralel çalıştırmak.</li>
+  <li>requests.session ile oturum oluşturmak.</li>
+  <li>requests.get kullanmak (en yaygın kullanılanı bu).</li>
+</ol>
+
+<p>Şimdi bu yöntemleri tek tek deneyerek sonuçlara göz atalım. Bunun için aşağıdaki kodu kullanabiliriz.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">aiohttp</span>
+<span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">requests_futures</span> <span class="kn">import</span> <span class="n">sessions</span> <span class="k">as</span> <span class="n">ses</span>
+<span class="kn">import</span> <span class="nn">contextlib</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">URL</span> <span class="o">=</span> <span class="s">'http://httpbin.org/gzip'</span>
+<span class="n">COUNT</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="o">@</span><span class="n">contextlib</span><span class="p">.</span><span class="n">contextmanager</span>
+<span class="k">def</span> <span class="nf">calc_execution_time</span><span class="p">(</span><span class="n">method</span><span class="p">):</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">yield</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"`%s' yönteminde geçen zaman: %.2fs"</span> <span class="o">%</span> <span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">))</span>
+
+<span class="k">with</span> <span class="n">calc_execution_time</span><span class="p">(</span><span class="s">"requests"</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">COUNT</span><span class="p">):</span>
+        <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+
+<span class="n">sessions</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">Session</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">calc_execution_time</span><span class="p">(</span><span class="s">"session"</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">COUNT</span><span class="p">):</span>
+        <span class="n">sessions</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+
+<span class="n">session</span> <span class="o">=</span> <span class="n">ses</span><span class="p">.</span><span class="n">FuturesSession</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">calc_execution_time</span><span class="p">(</span><span class="s">"concurrent.futures"</span><span class="p">):</span>
+    <span class="n">futures</span> <span class="o">=</span> <span class="p">[</span><span class="n">session</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+               <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">COUNT</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">futures</span><span class="p">:</span>
+        <span class="n">f</span><span class="p">.</span><span class="n">result</span><span class="p">()</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">aiohttp</span><span class="p">.</span><span class="n">ClientSession</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+        <span class="k">async</span> <span class="k">with</span> <span class="n">session</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+            <span class="k">await</span> <span class="n">response</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="p">.</span><span class="n">get_event_loop</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">calc_execution_time</span><span class="p">(</span><span class="s">"aiohttp"</span><span class="p">):</span>
+    <span class="n">loop</span><span class="p">.</span><span class="n">run_until_complete</span><span class="p">(</span>
+        <span class="n">asyncio</span><span class="p">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+                         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">COUNT</span><span class="p">)]))</span>
+</code></pre></div></div>
+
+<p>Çıktı olarak elde ettiğimiz sonuç ise muazzam!</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>requests yönteminde geçen zaman: 15.85s
+session yönteminde geçen zaman: 9.12s
+concurrent.futures yönteminde geçen zaman: 1.08s
+aiohttp yönteminde geçen zaman: 0.58s
+</code></pre></div></div>
+
+<p><img src="post_resources/python-veri-cekme/chart.png" alt="image" class="postimg" /></p>
+
+<p>Kod çıktısı ve grafik bize gösteriyor ki asenkron yöntem, geleneksel yöntemden 27 kat daha hızlı.</p>
+
+<ul>
+  <li>Ayrıca söylemek gerekirse, scriptinizi kontrolsüz bir şekilde asenkron veya paralel çalıştırırsanız büyük ihtimal hedef websitesinin güvenlik duvarı tarafından engelleneceksiniz. Fazla abartmamakta fayda var.</li>
+</ul>
+
+<h1 id="son-sözler"><a href="#header-3"></a>Son Sözler</h1>
+
+<p>Kısa ve öz bir yazı oldu fakat teknik açıdan birçok geliştiriciye yön göstereceğine inanıyorum. Maalesef ki veri madenciliği konusunda yeterli Türkçe kaynak yok, olanlar da bilgi açısından tatmin etmeyecek seviyede. Eğer bu alanda iş yapmak istiyorsanız size tavsiyem Github üzerinden insanların kodlarını okumanız olacaktır.</p>
+
+<p>Herkese kolay gelsin.</p>
+
+<p>Kaynakça:</p>
+<ol>
+  <li>https://docs.aiohttp.org/en/stable/client_quickstart.html</li>
+  <li>https://docs.python.org/3/library/concurrent.futures.html</li>
+  <li>https://julien.danjou.info/python-and-fast-http-clients/</li>
+</ol>
+:ET

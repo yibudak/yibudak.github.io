@@ -1,0 +1,112 @@
+I"�-<p>Merhaba, son zamanlarda birçok insanın bu işle ilgilenmesinden dolayı Twitter’dan veri çekmek hayli zorlaşmış durumda. Limitlere takılmayan, doğru sonuç üreten bir scrapper yazmak istediğiniz zaman artık Twitter API’den başka bir yol yokmuş gibi görünse de Twint kütüphanesi bu işi muazzam derecede başarıyor.</p>
+
+<p><img src="post_resources/twitter-scrapping/head.png" alt="image" class="postimg" /></p>
+
+<h1 id="twint-kütüphanesi-hakkında"><a href="#header-3"></a>Twint kütüphanesi hakkında</h1>
+
+<p>Twint kütüphanesi son zamanlarda kullandığım en sorunsuz twitter scrapping aracı. Diğer kütüphanelere baktığımızda çoğunun çalışmadığını veya API key istediğini görüyoruz. Twint ise ne API erişimi istiyor ne de bizi saçma sapan hatalarla uğraştırıyor.</p>
+
+<p>Başlıca özellikleri şu şekilde;</p>
+
+<ul>
+  <li>Neredeyse bütün tweetleri çekebilir. (yaklaşık 3200 tweet ile sınırlı)</li>
+  <li>Tor ağı desteği</li>
+  <li>Verileri dataframe’e kaydetme (pandas kullanarak)</li>
+  <li>Hızlı ve basit kurulum</li>
+  <li>Kullanmak için Twitter’a giriş yapmaya gerek yok, anonim olarak bütün fonksiyonlarını kullanabilirsiniz.</li>
+</ul>
+
+<h1 id="kurulumu-ve-kullanımı"><a href="#header-3"></a>Kurulumu ve kullanımı</h1>
+
+<p>Kurmak için:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip3 install --user --upgrade git+https://github.com/twintproject/twint.git@origin/master#egg=twint
+</code></pre></div></div>
+
+<p>Komut satırından kullanmak isterseniz:</p>
+
+<p><code class="language-plaintext highlighter-rouge">twint -u hesap_adi (tanımladığınız hesabın bütün tweetlerini listeler)</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">twint -u hesap_adi -s kelime (tanımladığınız hesapta X kelimeyi içeren bütün tweetleri listeler)</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">twint -u hesap_adi --following (tanımladığınız hesabın takip ettiği kullanıcılar listeler)</code></p>
+
+<p>gibi örnekler mevcut, isterseniz projenin Github sayfasına bakarak daha detaylı inceleyebilirsiniz.</p>
+
+<h1 id="kod-içerisinde-twint-çalıştırmak"><a href="#header-3"></a>Kod içerisinde Twint çalıştırmak</h1>
+
+<p>Can sıkıntısından yazdığım bir kodu aşağıya paylaşıyorum elimden geldiğince karmaşık yerlere yorum ekledim, kod merkezinize ekleyebilirsiniz. Herkese kolay gelsin.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">twint</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span> <span class="c1"># süreci takip etmek için
+</span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">requests.packages.urllib3.exceptions</span> <span class="kn">import</span> <span class="n">InsecureRequestWarning</span> <span class="c1"># yönlendirme sırasında 
+#sertifika hatası almamak için.
+</span>
+
+<span class="k">def</span> <span class="nf">get_verified_users</span><span class="p">():</span> <span class="c1">#twitter mavi tikli kullanıcıları @verified kullanıcısında takip ediyor.
+</span>    <span class="n">c</span> <span class="o">=</span> <span class="n">twint</span><span class="p">.</span><span class="n">Config</span><span class="p">()</span>
+    <span class="n">c</span><span class="p">.</span><span class="n">Username</span> <span class="o">=</span> <span class="s">"verified"</span>
+    <span class="n">c</span><span class="p">.</span><span class="n">Store_csv</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">c</span><span class="p">.</span><span class="n">Output</span> <span class="o">=</span> <span class="s">"verified_users.csv"</span>
+    <span class="n">twint</span><span class="p">.</span><span class="n">run</span><span class="p">.</span><span class="n">Following</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_unshorten_link</span><span class="p">(</span><span class="n">url</span><span class="p">):</span> <span class="c1"># twitter hesabında ekli olan URL, bir kısaltma servisinden geçiyor, gerçek URL'ye erişmek için.
+</span>    <span class="k">try</span><span class="p">:</span>
+        <span class="n">real_url</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">head</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">allow_redirects</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                 <span class="n">verify</span><span class="o">=</span> <span class="bp">False</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">real_url</span> <span class="o">=</span> <span class="s">"No website"</span>
+        <span class="k">return</span> <span class="n">real_url</span>
+    <span class="k">return</span> <span class="n">real_url</span><span class="p">.</span><span class="n">url</span>
+
+
+<span class="k">def</span> <span class="nf">library_caller</span><span class="p">(</span><span class="n">username</span><span class="p">):</span> <span class="c1"># kütüphaneyi burada kullanıyoruz
+</span>    <span class="n">user_attr</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">username</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">username</span> <span class="o">==</span> <span class="s">'username'</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">twint</span><span class="p">.</span><span class="n">Config</span><span class="p">()</span>
+    <span class="n">config</span><span class="p">.</span><span class="n">Username</span> <span class="o">=</span> <span class="n">username</span>
+    <span class="n">config</span><span class="p">.</span><span class="n">Store_object</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">config</span><span class="p">.</span><span class="n">Store_object_users_list</span> <span class="o">=</span> <span class="n">user_attr</span>
+    <span class="n">config</span><span class="p">.</span><span class="n">Hide_output</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">config</span><span class="p">.</span><span class="n">Retries_count</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">twint</span><span class="p">.</span><span class="n">run</span><span class="p">.</span><span class="n">Lookup</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="k">if</span> <span class="n">user_attr</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">url</span><span class="p">:</span>
+        <span class="n">web</span> <span class="o">=</span> <span class="n">get_unshorten_link</span><span class="p">(</span><span class="n">user_attr</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">web</span> <span class="o">=</span> <span class="s">"No Website"</span>
+    <span class="k">return</span> <span class="n">username</span><span class="p">,</span> <span class="n">web</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">file_username</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'verified_users.csv'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+    <span class="n">usernames</span> <span class="o">=</span> <span class="n">file_username</span><span class="p">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">file_username</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"verified_users_data.csv"</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">username</span> <span class="ow">in</span> <span class="n">usernames</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">library_caller</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+                <span class="n">data_frame</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">"Username"</span><span class="p">:</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="s">"Website"</span><span class="p">:</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]]})</span>
+                <span class="n">data_frame</span><span class="p">.</span><span class="n">to_csv</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="nb">file</span><span class="p">.</span><span class="n">tell</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">requests</span><span class="p">.</span><span class="n">packages</span><span class="p">.</span><span class="n">urllib3</span><span class="p">.</span><span class="n">disable_warnings</span><span class="p">(</span><span class="n">InsecureRequestWarning</span><span class="p">)</span>
+    <span class="n">get_verified_users</span><span class="p">()</span>
+    <span class="n">main</span><span class="p">()</span>
+
+
+
+
+</code></pre></div></div>
+:ET
