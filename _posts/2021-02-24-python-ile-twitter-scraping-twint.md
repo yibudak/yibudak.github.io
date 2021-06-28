@@ -1,5 +1,5 @@
 ---
-title: "[TR] Python ile Twitter Scrapping (Twint)"
+title: "[TR] Python ile Twitter Scraping (Twint)"
 published: true
 date:	2021-02-24 15:00:00
 ---
@@ -10,7 +10,7 @@ Merhaba, son zamanlarda birçok insanın bu işle ilgilenmesinden dolayı Twitte
 
 # [](#header-3)Twint kütüphanesi hakkında
 
-Twint kütüphanesi son zamanlarda kullandığım en sorunsuz twitter scrapping aracı. Diğer kütüphanelere baktığımızda çoğunun çalışmadığını veya API key istediğini görüyoruz. Twint ise ne API erişimi istiyor ne de bizi saçma sapan hatalarla uğraştırıyor.
+Twint kütüphanesi son zamanlarda kullandığım en sorunsuz twitter scraping aracı. Diğer kütüphanelere baktığımızda çoğunun çalışmadığını veya API key istediğini görüyoruz. Twint ise ne API erişimi istiyor ne de bizi saçma sapan hatalarla uğraştırıyor.
 
 Başlıca özellikleri şu şekilde;
 
