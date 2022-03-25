@@ -1,9 +1,9 @@
 ---
-title: "[EN] PriviaHub CTF Sombrero Write-Up"
+title: "[EN] Sombrero CTF Write-Up"
 published: true
 date:	2020-06-30 03:00:00
 ---
-hey folks, in this write-up we'll solve CTF named Sombrero in PriviaHub, let's get started!
+hey folks, in this write-up we'll solve CTF named Sombrero, let's get started!
 
 here's our challenge:
 
@@ -74,7 +74,7 @@ we found the IP address in instructions, now all we need to do convert it into d
 
 here's the flag:
 
-`PRIVIAHUB{192.168.1.13}`
+`FLAG{192.168.1.13}`
 
 it seems like we could find the flag just searching "192.168" as "a8c0" but we had to be sure about IP address.
 
