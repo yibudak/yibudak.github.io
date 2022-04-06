@@ -1,23 +1,27 @@
 ---
-title: "[EN] Sombrero CTF Write-Up"
+layout: post
+title: "Sombrero CTF Write-Up"
 published: true
 date:	2020-06-30 03:00:00
+categories: [Reversing]
+tags : CTF
+
 ---
 hey folks, in this write-up we'll solve CTF named Sombrero, let's get started!
 
 here's our challenge:
 
-![image](post_resources/sombrero/description.png){:.postimg}
+![image](post_resources/sombrero/description.png)
 
 # [](#header-3)static analysis
 
 sombrero is 16 kb malware and has hashed name. to speed up the solution i'll change its name to sombrero.
 
-![image](post_resources/sombrero/changename.png){:.postimg}
+![image](post_resources/sombrero/changename.png)
 
 then i upload the file on virustotal for basic and first analysis.
 
-![image](post_resources/sombrero/virustotal.png){:.postimg}
+![image](post_resources/sombrero/virustotal.png)
 
 virustotal says the file is compiled for OSX on ARM architecture. this could be super basic analysis but we got the useful information about our challenge, with this info i decided that sombrero is an iOS malware. my road map would be like that;
 
@@ -29,24 +33,24 @@ virustotal says the file is compiled for OSX on ARM architecture. this could be 
 
 after i decided my road map, let's dig into it. firstly i'm using IDA as disassembler because of its simplicity.
 
-![image](post_resources/sombrero/ida.png){:.postimg}
+![image](post_resources/sombrero/ida.png)
 
 but as we can see at above IDA couldn't handle to disassemble the malware. it seems like we need to find a disassembler that works for ARM architecture, i'm switching to objdump. that would be enough for this mission but in order to use it as ARM disassembler we have to install GNU ToolChain for ARM packages with following commands as shown below.
 
-![image](post_resources/sombrero/installpackages.png){:.postimg}
+![image](post_resources/sombrero/installpackages.png)
 
 after that let's disassemble sombrero. 
 
-![image](post_resources/sombrero/objdump.png){:.postimg}
+![image](post_resources/sombrero/objdump.png)
 
 so far so good… now let's dig into messy part of this challenge. we need to find similar payload with trial and error method so metasploit would help us about that. i'm listing paylods with "show payloads" command and searching the proper malware that fits sombrero's characteristic.
 
 
-![image](post_resources/sombrero/payload.png){:.postimg}
+![image](post_resources/sombrero/payload.png)
 
 creating my own malware…
 
-![image](post_resources/sombrero/msfconsole.png){:.postimg}
+![image](post_resources/sombrero/msfconsole.png)
 
 there is one thing important here. i need to know my payload's listen IP in hex format so i'll find it in assembly instructions.
 
@@ -54,17 +58,17 @@ there is one thing important here. i need to know my payload's listen IP in hex 
 
 i named my payload as "sample" and now i got two disassembled malware.
 
-![image](post_resources/sombrero/compare.png){:.postimg}
+![image](post_resources/sombrero/compare.png)
 
 attention to size, we are lucky! now we need to find IP address in instructions and do comparison between two malwares.
 
 sampleAssembly:
 
-![image](post_resources/sombrero/sampleassembly.png){:.postimg}
+![image](post_resources/sombrero/sampleassembly.png)
 
 sombreroAssembly:
 
-![image](post_resources/sombrero/sombreroassembly.png){:.postimg}
+![image](post_resources/sombrero/sombreroassembly.png)
 
 Ta daa!!
 

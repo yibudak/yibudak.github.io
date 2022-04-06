@@ -1,7 +1,10 @@
 ---
-title: "[TR] Proxychains Hakkında Her Şey"
+layout: post
+title: "Proxychains Hakkında Her Şey"
 date:	2020-07-22 15:00:00
 published: true
+categories: [Tools]
+tags : Proxy
 ---
 
 selamlar, geçenlerde uplink oyununu öğrenirken her saldırıdan önce karmaşık bir ağ bağlantısı yapmam gerektiğini fark ettim ve bunun gerçek hayattaki karşılığı olan bir yazılım arayışına girdim ve karşıma proxychains çıktı.
@@ -27,13 +30,13 @@ eğer kullandığınız linux dağıtımında proxychains yok ise aşağıdaki k
 * birden fazla proxy sunucu kullanarak takip edilebilirliği azaltmak için.
 * dns sorgularını proxy sunucu üzerinden göndermek için.
 
-![image](post_resources/proxychains/diyagram.png){:.postimg}
+![image](post_resources/proxychains/diyagram.png)
 
 # [](#header-3)proxychains sözdizimi
 
 proxychains'i biz sistemimizde bulunan diğer yazılımlarla birlikte kullanabiliriz. bunun için yapmamız gereken işlem çok basit:
 
-![image](post_resources/proxychains/syntax.png){:.postimg}
+![image](post_resources/proxychains/syntax.png)
 
 `proxychains nmap scanme.nmap.org`
 
@@ -48,7 +51,7 @@ proxychains'i nasıl kullanacağımızı öğrendikten sonra proxy sunucularım�
 
 bunun için `sudo nano /etc/proxychains.conf` komutunu kullanmamız yeterli olacaktır.
 
-![image](post_resources/proxychains/config.png){:.postimg}
+![image](post_resources/proxychains/config.png)
 
 proxychains.conf dosyası içerisinde ön tanımlı ayarları değiştirmeden kullanabilirsiniz fakat yine de içeriğinden bahsetmekte fayda var. etkinleştirmek istediğiniz satırın başındaki # işaretini silmeniz yeterli.
 
@@ -74,7 +77,7 @@ proxychains'de ön tanımlı olarak aktif bu seçenek, yaptığınız dns sorgul
 
 # [](#header-3)proxy listesinin ayarlanması
 
-![image](post_resources/proxychains/proxylist.png){:.postimg}
+![image](post_resources/proxychains/proxylist.png)
 
 proxy listesini ayarlamak çok basit, tek yapmamız gereken `protokol` `sunucu adresi` `port` formatında /etc/proxychains.conf dosyasına eklemek. eğer kullandığınız proxy sunucu, kullanıcı adı ve şifre gerektiriyorsa port'un yanına `kullanıcı adı` `şifre` yazmanız yeterli.
 ön tanımlı olarak `socks4 127.0.0.1 9050` adresinin yorum satırından çıkarıldığını görebiliriz. tor ağına bağlanmak için bu ayar bizim için yeterli olacaktır fakat siz kendi istediğiniz bir proxy sunucu eklemek istediğinzde bu satırın altına ekleme yapabilir veya tor sunucusunu yorum satırı haline getirerek devre dışı bırakabilirsiniz.<
@@ -89,14 +92,14 @@ kullandığınız linux dağıtımında tor servisi yoksa `sudo apt-get install 
 
 komutunu kullanarak tor servisini aktif etmeniz gerekiyor. artık proxychains'i tor ağıyla birlikte kullanabiliriz.
 
-![image](post_resources/proxychains/tordig.png){:.postimg}
+![image](post_resources/proxychains/tordig.png)
 
 
 # [](#header-3)proxychains'i nmap ile birlikte kullanmak
 
 proxychains'i diğer yazılımlarla birlikte kullanabileceğimizden bahsettim, yazıyı da bir örnekle bitirmek istedim. aşağıdaki görselde "scanme.nmap.org" üzerinde uygulamasını görebilirsiniz.
 
-![image](post_resources/proxychains/nmap.gif){:.postimg}
+![image](post_resources/proxychains/nmap.gif)
 
 
 # [](#header-3)son sözler

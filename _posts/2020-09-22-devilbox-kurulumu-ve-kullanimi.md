@@ -1,10 +1,13 @@
 ---
-title: "[TR] Devilbox Kurulumu ve Kullanımı"
+layout: post
+title: "Devilbox Kurulumu ve Kullanımı"
 date:	2020-09-22 10:00:00
 published: true
+categories: [Tools]
+tags : Devilbox LAMP
 ---
 
-![image](post_resources/devilbox/header.png){:.postimg}
+![image](post_resources/devilbox/header.png)
 
 
 Merhaba, web uygulamaları için Ubuntu üzerinde XAMPP kullanmayı denemiştim fakat Linux'da çok da sağlıklı çalışmadığını fark ettim, çoğu zaman servisler kendi kendini kapatıyor veya yeniden başlıyordu. Durum böyle olunca ben de alternatif bir yazılım arayışına girdim ve karşıma Docker üzerinde çalışan bir mühendislik harikası çıktı, onun adı Devilbox. :)
@@ -21,7 +24,7 @@ Devilbox, Docker'a sahip bütün cihazlarda ve işletim sistemlerinde çalışı
 * Sadece tek bir ayar dosyasını düzenleyerek servislerin onlarca farklı sürümünü kullanabilirsiniz.
 
 
-![image](post_resources/devilbox/diagram.png){:.postimg}
+![image](post_resources/devilbox/diagram.png)
 
 Yukarıda Devilbox'ın çalışmasını gösteren diyagramı görebilirsiniz.
 
@@ -39,7 +42,7 @@ Devilbox kurulumu oldukça basit, aşağıda Linux veya macOS üzerine kurmak i�
 
 Devilbox'ımız çalıştığına göre `localhost/` adresine bağlanarak arayüzüne erişebiliriz. Bizi şöyle bir arayüz karşılıyor. 
 
-![image](post_resources/devilbox/mainpage.png){:.postimg}
+![image](post_resources/devilbox/mainpage.png)
 
 Sisteme projemizi eklememiz için `devilbox/data/www` dizini içerisine proje klasörümüzü oluşturuyoruz. Sonrasında ise proje klasörümüzün içinde htdocs adlı yeni bir klasör oluşturup dosyalarımızı bu htdocs'un içine atıyoruz.
 
@@ -50,7 +53,7 @@ Sisteme projemizi eklememiz için `devilbox/data/www` dizini içerisine proje kl
 
 Bütün bunları yaptıktan sonra Devilbox içerisinden 'Virtual Hosts' sekmesine tıkladığımızda aşağıdaki gibi bir hatayla karşılacağız, bunun çözümü ise çok basit.
 
-![image](post_resources/devilbox/error.png){:.postimg}
+![image](post_resources/devilbox/error.png)
 
 Tek yapmanız gereken `sudo nano /etc/hosts` komutunu kullanarak hosts dosyanıza;
 
@@ -58,7 +61,7 @@ Tek yapmanız gereken `sudo nano /etc/hosts` komutunu kullanarak hosts dosyanız
 
 kaydını eklemek. Bu pencereden sırasıyla CTRL+X ve Shift+Y tuşlarına basarak çıkın. 
 
-![image](post_resources/devilbox/problemsolved.png){:.postimg}
+![image](post_resources/devilbox/problemsolved.png)
 
 Hata çözüldü, artık linke tıklayarak veya domain ismini adres çubuğuna yazarak web uygulamanıza erişebilirsiniz.
 

@@ -1,0 +1,75 @@
+.page-404-games {
+    margin-top: 50px;
+}
+
+.g-tool-bar {
+    width: 100%;
+    margin: 10px auto;
+    overflow: hidden;
+    text-align: center
+}
+
+.g-tool-bar-item {
+    float: left;
+    width: 33%;
+    min-width: 150px
+}
+
+.g-tool-bottom {
+    width: 33%;
+    border: 1px solid #000;
+    border-radius: 5px;
+    line-height: 20px;
+    text-align: center
+}
+
+.g-frame {
+    width: 400px;
+    margin: 0 auto;
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    overflow: hidden
+}
+
+.g-row {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden
+}
+
+.g-cell {
+    float: left;
+    width: 94px;
+    height: 94px;
+    margin: 2px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    line-height: 94px;
+    font-size: 32px;
+    text-align: center
+}
+
+@media screen and (max-width: 520px) {
+    .g-frame {
+        width: 320px
+    }
+
+    .g-cell {
+        width: 74px;
+        height: 74px;
+        line-height: 74px
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .g-frame {
+        width: 280px
+    }
+
+    .g-cell {
+        width: 64px;
+        height: 64px;
+        line-height: 64px
+    }
+}

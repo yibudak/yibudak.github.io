@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+/* for specific category page */
+.category-title {
+  text-align: center;
+}
+
+.category-list {
+  line-height: 24px;
+}
+
+.category-name {
+  font-weight: bold;
+}
+
+.category-list-item {
+  display: block;
+  position: relative;
+  margin: 7px 0;
+  overflow: hidden;
+  line-height: 24px;
+}
+
+/* for categories page */
+.categories-title {
+  text-align: center;
+}
+
+.categories-list {
+  line-height: 24px;
+}

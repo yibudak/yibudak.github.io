@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+.post-title {
+  text-align: center;
+}
+
+.post-author {
+  display: none;
+}
+
+.post-content p {
+  line-height: 20px;
+}
+
+.post-content img {
+  border: 1px solid #64646483;
+  padding: 4pt;
+  display: block;
+  margin: 10px auto;
+}
+
+.post-info {
+  line-height: 24px;
+  margin: 10px 0;
+}
+
+.post-category, .post-tag {
+  margin: 0 5px;
+}

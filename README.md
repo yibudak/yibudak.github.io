@@ -1,7 +1,3 @@
-# blog page of yibudak
+# Jekyll-Paper
 
-greetz to https://github.com/tocttou
-
-## License
-
-CC0 1.0 Universal
+This themes base version is belong to ghosind.

@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+@media screen and (max-width: 768px) {
+  /* reset default styles */
+  img {
+    max-width: 400px;
+  }
+
+  /* Posts list */
+  .posts-list-pagination {
+    margin: 10px 0 5px 0;
+  }
+
+  /* Footer */
+  .footer-copyright .float-left, .footer-copyright .float-right {
+    margin-left: 10px;
+    float: none;
+  }
+}

@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<article class="container-page">
+  <div class="category-title">
+    <h1>{{ page.title }}</h1>
+  </div>
+  <ul class="category-list">
+    {% for post in page.posts %}
+    <ul class="category-list">
+      <div class="category-list-item">
+        <span><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></span>
+        <span class="category-list-item-date float-right">
+          {{ post.date | date: "%b %e, %Y" }}
+        </span>
+      </div> {% endfor %}
+    </ul>
+</article>

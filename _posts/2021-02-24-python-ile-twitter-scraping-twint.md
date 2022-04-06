@@ -1,12 +1,15 @@
 ---
-title: "[TR] Python ile Twitter Scraping (Twint)"
+layout: post
+title: "Python ile Twitter Scraping (Twint)"
 published: true
 date:	2021-02-24 15:00:00
+categories: [Python]
+tags : Twitter Twint
 ---
 
 Merhaba, son zamanlarda birçok insanın bu işle ilgilenmesinden dolayı Twitter'dan veri çekmek hayli zorlaşmış durumda. Limitlere takılmayan, doğru sonuç üreten bir scrapper yazmak istediğiniz zaman artık Twitter API'den başka bir yol yokmuş gibi görünse de Twint kütüphanesi bu işi muazzam derecede başarıyor.
 
-![image](post_resources/twitter-scrapping/head.png){:.postimg}
+![image](post_resources/twitter-scrapping/head.png)
 
 # [](#header-3)Twint kütüphanesi hakkında
 

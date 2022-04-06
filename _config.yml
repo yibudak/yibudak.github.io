@@ -1,35 +1,36 @@
-title: 'yibudak &#124; ceng student'
-description: "Personal Blog of Yiğit Budak"
-
-author:
-  name: "Yiğit Budak"
-  email: "yibudak@gmail.com"
-  url: "https://yibudak.github.io"
-
-baseurl: /
-
-source: .
-destination: ./_site
-lang: en
-languages: ["en", "tr"]
+title: yibudak
+email: yigit@outlook.com
+name: Yiğit Budak
+description: >- # this means to ignore newlines until "baseurl:"
+  Python and Odoo Development Diaries
+keywords: ['software', 'computer', 'development', 'python', 'odoo', 'web scraping', 'sql', 'linux']
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://yibudak.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+language: en
 permalink: /:title
-paginate: 3
+paginate: 25
 paginate_path: /page/:num/
 
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
+sass:
+  sass_dir: _sass
+  style: compressed # compressed, compact, expanded or compressed
 
-future: true
+# Category settings
+jekyll-archives:
+  enabled: 
+    - categories
+    - tags
+  layout: archive
+  permalinks:
+    category: /category/:name/
+    tag: /tag/:name/
+
+# Build settings
+markdown: kramdown
 plugins:
-  - jekyll-seo-tag
+  - jekyll-feed
   - jekyll-paginate
   - jekyll-sitemap
-
-# Custom variable
-owner : "yibudak"
-year : "2021"
+  - jekyll-archives
+  - jekyll-seo-tag
+  - jekyll-gist

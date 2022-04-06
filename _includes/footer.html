@@ -1,9 +1,5 @@
-<footer>
-  <a href="https://yibudak.github.io/whoami">
-    <span>
-        <b>{{ site.owner}}</b>
-    </span>
-    {% capture currentyear %}{{ 'now' | date: "%Y" }}{% endcapture %}
-    <span>© {{ currentyear }}</span>
-  </a>
-</footer>
+<div class="footer-copyright">
+  <span class="footer-copyright-text float-right">
+    Copyright &copy; {{ site.time | date: '%Y' }} | yibudak
+  </span>
+</div>

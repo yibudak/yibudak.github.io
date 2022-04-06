@@ -1,15 +1,21 @@
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
-  <meta name="generator" content="Jekyll">
-  <meta name="google-site-verification" content="srqHy8axvul8vS1pLwRypMUXy3Cx1YrUaOrrHK4elL4" />
-  <meta name="yandex-verification" content="db209801c2570b92" />
-  <html lang="en">
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+{% seo %}
+{% if site.keywords or page.tags %}
+<meta name="keywords" content="{% if page.tags %}{{ page.tags | join: ','}}{% else %}{{ site.keywords | join: ',' }}{% endif %}" />
+{% endif %}
+<link rel="shortcut icon" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/favicon.png"/>
+<link rel="alternate" type="application/rss+xml" title="{{ site.title }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/base.css" />
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/highlight.css" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171254151-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  <title>{%if page.title %}yibudak | {{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  gtag('config', 'UA-171254151-1');
+</script>
 
-  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl | replace: '//', '/' }}">
-  <link rel="shortcut icon" type="image/png" href="/favicon.png">
-  
-  <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed" /> {% seo %}
-</head>

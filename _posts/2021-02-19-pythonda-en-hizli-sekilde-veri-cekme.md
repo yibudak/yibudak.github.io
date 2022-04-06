@@ -1,10 +1,13 @@
 ---
-title: "[TR] Python'da En Hızlı Şekilde Veri Çekme"
+layout: post
+title: "Python'da En Hızlı Şekilde Veri Çekme"
 date:	2021-02-19 07:00:00
 published: true
+categories: [Python]
+tags : Request Web Scraping
 ---
 
-![image](post_resources/python-veri-cekme/head.png){:.postimg}
+![image](post_resources/python-veri-cekme/head.png)
 
 
 Merhaba, Python kullanarak veri madenciliği (web scraping) yapmak günümüzün popüler konularından bir tanesi. Hem gelişmiş kütüphaneler, hem de Python söz diziminin diğer dillere göre nispeten daha kolay olmasından dolayı Python bu işte çok yetenekli. İnternetteki verinin değeri ise paha biçilemez seviyeye gelmiş durumda. Böylesine bir madenin en hızlı nasıl kazılacağını bu yazımda sizlere bahsettim. Keyifli okumalar dilerim.
@@ -86,7 +89,7 @@ concurrent.futures yönteminde geçen zaman: 1.08s
 aiohttp yönteminde geçen zaman: 0.58s
 ```
 
-![image](post_resources/python-veri-cekme/chart.png){:.postimg}
+![image](post_resources/python-veri-cekme/chart.png)
 
 Kod çıktısı ve grafik bize gösteriyor ki asenkron yöntem, geleneksel yöntemden 27 kat daha hızlı.
 
