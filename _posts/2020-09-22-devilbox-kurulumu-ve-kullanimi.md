@@ -15,7 +15,7 @@ image:
 Merhaba, web uygulamaları için Ubuntu üzerinde XAMPP kullanmayı denemiştim fakat Linux'da çok da sağlıklı çalışmadığını fark ettim, çoğu zaman servisler kendi kendini kapatıyor veya yeniden başlıyordu. Durum böyle olunca ben de alternatif bir yazılım arayışına girdim ve karşıma Docker üzerinde çalışan bir mühendislik harikası çıktı, onun adı Devilbox. :)
 
 
-## [](#header-3)Devilbox'ın Özellikleri
+## Devilbox'ın Özellikleri
 
 Devilbox, Docker'a sahip bütün cihazlarda ve işletim sistemlerinde çalışır. Başlıca özellikleri ise şunlardır:
 
@@ -30,7 +30,7 @@ Devilbox, Docker'a sahip bütün cihazlarda ve işletim sistemlerinde çalışı
 
 Yukarıda Devilbox'ın çalışmasını gösteren diyagramı görebilirsiniz.
 
-## [](#header-3)Devilbox Kurulumu
+## Devilbox Kurulumu
 
 Devilbox kurulumu oldukça basit, aşağıda Linux veya macOS üzerine kurmak için gereken aşamalar mevcut:
 
@@ -40,7 +40,7 @@ Devilbox kurulumu oldukça basit, aşağıda Linux veya macOS üzerine kurmak i�
 1. `docker-compose up` komutu ile yazılımı çalıştırın ve paketleri indirmesini bekleyin, paketler indikten sonra sistemin çalıştığına dair log mesajlarını terminalinizde görebilirsiniz.
 
 
-## [](#header-3)Devilbox Kullanımı
+## Devilbox Kullanımı
 
 Devilbox'ımız çalıştığına göre `localhost/` adresine bağlanarak arayüzüne erişebiliriz. Bizi şöyle bir arayüz karşılıyor. 
 
@@ -67,12 +67,12 @@ kaydını eklemek. Bu pencereden sırasıyla CTRL+X ve Shift+Y tuşlarına basar
 
 Hata çözüldü, artık linke tıklayarak veya domain ismini adres çubuğuna yazarak web uygulamanıza erişebilirsiniz.
 
-## [](#header-3)Ekstra Bilgiler
+## Ekstra Bilgiler
 
 1. Devilbox klasörü içerisinde `sudo ./shell.sh` komutunu kullanarak konteyner terminaline erişebilirsiniz. Böylece 'mysql' gibi komutları kullanabilirsiniz.
 1. Devilbox klasörü içerisinde bulunan `.env` dosyasını düzenleyerek istediğiniz servisin istediğiniz versiyonunu kullanabilirsiniz, ayrıca domain uzantısını değiştirmek gibi birçok ayara sahip.
 
-## [](#header-3)Son Sözler
+## Son Sözler
 
 Özellikle macOS ve Linux'da can sıkıcı olan XAMPP'a çok güzel bir alternatiften bahsettik. Ayrıca Devilbox gibi basit ama etkili yazılımlar Docker dünyasına dalış yapmak için güzel bir yol. Kendinize iyi bakın!
 

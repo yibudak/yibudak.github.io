@@ -16,7 +16,7 @@ image:
 Merhaba, Python kullanarak veri madenciliği (web scraping) yapmak günümüzün popüler konularından bir tanesi. Hem gelişmiş kütüphaneler, hem de Python söz diziminin diğer dillere göre nispeten daha kolay olmasından dolayı Python bu işte çok yetenekli. İnternetteki verinin değeri ise paha biçilemez seviyeye gelmiş durumda. Böylesine bir madenin en hızlı nasıl kazılacağını bu yazımda sizlere bahsettim. Keyifli okumalar dilerim.
 
 
-## [](#header-3)HTTP istemcileri (HTTP clients)
+## HTTP istemcileri (HTTP clients)
 
 Python'da birçok HTTP istemcisi bulunuyor. Bunlardan bazıları;
 
@@ -27,7 +27,7 @@ Python'da birçok HTTP istemcisi bulunuyor. Bunlardan bazıları;
 
 Aralarında en kararlı çalışan `requests` modülü olduğu için bu yazıda onu kullanacağız.
 
-## [](#header-3)Çalıştırma yöntemleri
+## Çalıştırma yöntemleri
 
 Aslında bize zaman kazandıracak olay burada başlıyor. Kodumuzu çalıştıracağımız yöntem türüne göre veri hızı inanılmaz boyutta artıyor. Dilerseniz yöntemlerden ve detaylarından bahsedelim. En hızlıdan, en yavaşa sıralayacak olursak.
 
@@ -100,7 +100,7 @@ Kod çıktısı ve grafik bize gösteriyor ki asenkron yöntem, geleneksel yönt
 * Ayrıca söylemek gerekirse, scriptinizi kontrolsüz bir şekilde asenkron veya paralel çalıştırırsanız büyük ihtimal hedef websitesinin güvenlik duvarı tarafından engelleneceksiniz. Fazla abartmamakta fayda var.
 
 
-## [](#header-3)Son Sözler
+## Son Sözler
 
 Kısa ve öz bir yazı oldu fakat teknik açıdan birçok geliştiriciye yön göstereceğine inanıyorum. Maalesef ki veri madenciliği konusunda yeterli Türkçe kaynak yok, olanlar da bilgi açısından tatmin etmeyecek seviyede. Eğer bu alanda iş yapmak istiyorsanız size tavsiyem Github üzerinden insanların kodlarını okumanız olacaktır.
 

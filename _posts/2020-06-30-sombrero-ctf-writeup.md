@@ -17,7 +17,7 @@ Here's our challenge:
 
 ![CTF Description](/post_resources/sombrero/description.png)
 
-### [](#header-3)Static Analysis
+### Static Analysis
 
 Sombrero is 16 KB malware and has hashed name. To speed up the solution I'll change its name to sombrero.
 
@@ -33,7 +33,7 @@ VirusTotal says the file is compiled for OSX on ARM architecture. This could be 
 1. Creating a malware with known listen IP address and port, then disassemble it as we did before for sombrero.
 1. Comparing the assembly instructions of both malware's.
 
-### [](#header-3)Reversing
+### Reversing
 
 After I decided my road map, let's dig into it. firstly I'm using IDA as disassembler because of its simplicity.
 

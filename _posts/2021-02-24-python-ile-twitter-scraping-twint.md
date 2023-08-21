@@ -15,7 +15,7 @@ image:
 Merhaba, son zamanlarda birçok insanın bu işle ilgilenmesinden dolayı Twitter'dan veri çekmek hayli zorlaşmış durumda. Limitlere takılmayan, doğru sonuç üreten bir scrapper yazmak istediğiniz zaman artık Twitter API'den başka bir yol yokmuş gibi görünse de Twint kütüphanesi bu işi muazzam derecede başarıyor.
 
 
-## [](#header-3)Twint kütüphanesi hakkında
+## Twint kütüphanesi hakkında
 
 Twint kütüphanesi son zamanlarda kullandığım en sorunsuz twitter scraping aracı. Diğer kütüphanelere baktığımızda çoğunun çalışmadığını veya API key istediğini görüyoruz. Twint ise ne API erişimi istiyor ne de bizi saçma sapan hatalarla uğraştırıyor.
 
@@ -28,7 +28,7 @@ Başlıca özellikleri şu şekilde;
 * Kullanmak için Twitter'a giriş yapmaya gerek yok, anonim olarak bütün fonksiyonlarını kullanabilirsiniz.
 
 
-## [](#header-3)Kurulumu ve kullanımı
+## Kurulumu ve kullanımı
 
 Kurmak için:
 ```
@@ -47,7 +47,7 @@ Komut satırından kullanmak isterseniz:
 
 gibi örnekler mevcut, isterseniz projenin Github sayfasına bakarak daha detaylı inceleyebilirsiniz.
 
-## [](#header-3)Kod içerisinde Twint çalıştırmak
+## Kod içerisinde Twint çalıştırmak
 
 Can sıkıntısından yazdığım bir kodu aşağıya paylaşıyorum elimden geldiğince karmaşık yerlere yorum ekledim, kod merkezinize ekleyebilirsiniz. Herkese kolay gelsin.
 
