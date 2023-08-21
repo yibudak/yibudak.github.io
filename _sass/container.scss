@@ -4,6 +4,8 @@
   width: 100%;
   margin: 0 auto;
   max-width: 900px;
+  background-color: #fff;
+  min-height: 100%;
 }
 
 .container-header {
@@ -14,6 +16,7 @@
 }
 
 .container-main {
+  word-wrap:break-word;
   width: 95%;
   margin: 10px auto;
   overflow: hidden;

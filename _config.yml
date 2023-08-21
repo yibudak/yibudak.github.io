@@ -1,12 +1,31 @@
-title: yibudak
-email: yigit@outlook.com
-name: Yiğit Budak
-description: >- # this means to ignore newlines until "baseurl:"
-  Python and Odoo Development Diaries
-keywords: ['software', 'computer', 'development', 'python', 'odoo', 'web scraping', 'sql', 'linux']
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://yibudak.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-language: en
+
+
+# Jekyll SEO Tag settings
+title: yibudak
+tagline: Python and Odoo Development Diaries
+description: This is a personal blog of Yiğit Budak. He writes about Python and Odoo development.
+url: "https://yibudak.github.io"
+email: yigit@altinkaya.com.tr
+author:
+  name: Yiğit Budak
+  url: https://yibudak.github.io
+  picture: https://yibudak.github.io/post_resources/about/photo.jpg
+social:
+  name: Yiğit Budak
+  links:
+    - https://www.linkedin.com/in/yibudak
+    - https://github.com/yibudak
+    - https://t.me/yibudak
+google_site_verification: srqHy8axvul8vS1pLwRypMUXy3Cx1YrUaOrrHK4elL4
+keywords: ['software', 'computer', 'development', 'python', 'odoo', 'web scraping', 'sql', 'linux']
+
+
+# Localizations
+languages: ["tr", "en"]
+exclude_from_localizations: ["javascript", "images", "css"]
+
+# Pagination
 permalink: /:title
 paginate: 25
 paginate_path: /page/:num/
@@ -17,7 +36,7 @@ sass:
 
 # Category settings
 jekyll-archives:
-  enabled: 
+  enabled:
     - categories
     - tags
   layout: archive

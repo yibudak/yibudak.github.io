@@ -4,14 +4,19 @@ title: "Python ile Twitter Scraping (Twint)"
 published: true
 date:	2021-02-24 15:00:00
 categories: [Python]
-tags : Twitter Twint
+tags : Twitter Twint Python
+image:
+   path: /post_resources/twitter-scrapping/head.png
+   height: 450
+   width: 150
+   alt: Python ile Twitter Scraping (Twint)
 ---
 
 Merhaba, son zamanlarda birçok insanın bu işle ilgilenmesinden dolayı Twitter'dan veri çekmek hayli zorlaşmış durumda. Limitlere takılmayan, doğru sonuç üreten bir scrapper yazmak istediğiniz zaman artık Twitter API'den başka bir yol yokmuş gibi görünse de Twint kütüphanesi bu işi muazzam derecede başarıyor.
 
-![image](post_resources/twitter-scrapping/head.png)
+![Python Twitter Veri Çekme](post_resources/twitter-scrapping/head.png)
 
-# [](#header-3)Twint kütüphanesi hakkında
+### [](#header-3)Twint kütüphanesi hakkında
 
 Twint kütüphanesi son zamanlarda kullandığım en sorunsuz twitter scraping aracı. Diğer kütüphanelere baktığımızda çoğunun çalışmadığını veya API key istediğini görüyoruz. Twint ise ne API erişimi istiyor ne de bizi saçma sapan hatalarla uğraştırıyor.
 
@@ -24,7 +29,7 @@ Başlıca özellikleri şu şekilde;
 * Kullanmak için Twitter'a giriş yapmaya gerek yok, anonim olarak bütün fonksiyonlarını kullanabilirsiniz.
 
 
-# [](#header-3)Kurulumu ve kullanımı
+### [](#header-3)Kurulumu ve kullanımı
 
 Kurmak için:
 ```
@@ -43,7 +48,7 @@ Komut satırından kullanmak isterseniz:
 
 gibi örnekler mevcut, isterseniz projenin Github sayfasına bakarak daha detaylı inceleyebilirsiniz.
 
-# [](#header-3)Kod içerisinde Twint çalıştırmak
+### [](#header-3)Kod içerisinde Twint çalıştırmak
 
 Can sıkıntısından yazdığım bir kodu aşağıya paylaşıyorum elimden geldiğince karmaşık yerlere yorum ekledim, kod merkezinize ekleyebilirsiniz. Herkese kolay gelsin.
 

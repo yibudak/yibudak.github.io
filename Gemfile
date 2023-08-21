@@ -20,6 +20,7 @@ group :jekyll_plugins do
   gem "jekyll-archives"
   gem "jekyll-seo-tag", "~> 2.8.0"
   gem "jekyll-gist"
+  gem 'jekyll-multiple-languages-plugin'
 end
 
 

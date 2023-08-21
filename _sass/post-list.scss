@@ -9,8 +9,25 @@
 }
 
 .posts-list-item-name {
-  width: calc(100% - 100px);
+  width: calc(100% - 75px);
   font-weight: 300;
+}
+
+.posts-list-item-date {
+    width: 75px;
+    text-align: right;
+    font-size: 0.8em;
+    color: #aaa;
+}
+
+.posts-list-item-name::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-right: 5px;
+  background-color: #000;
+  border-radius: 50%;
 }
 
 .posts-list-pagination {

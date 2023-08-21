@@ -3,8 +3,13 @@ layout: post
 title: "Google ve Algoritmasındaki Büyük Problem"
 published: true
 date:	2023-03-21 11:00:00
-categories: [Daily]
+categories: [Günlük]
 tags : Blog Google
+image:
+   path: /post_resources/google_failed/search_result.png
+   height: 450
+   width: 800
+   alt: Google ve Algoritmasındaki Büyük Problem
 ---
 
 Son zamanlarda google'da arama yaparken karşıma çıkan alakasız ve kalitesiz sonuçlar beni oldukça rahatsız etmeye başlamıştı. Twitter'da dolaşırken bununla ilgili başka bir kullanıcının da şikayetini görünce bir araştırma yapmaya karar verdim ve bu yazıyı yazdım. Keyifli okumalar dilerim.
@@ -16,7 +21,7 @@ Son zamanlarda google'da arama yaparken karşıma çıkan alakasız ve kalitesiz
 
 Dilerseniz bir örnekle başlayalım **"on bin TL nasıl yazılır?"** sorgusunun sonuçları aşağıdaki gibi:
 
-![image](post_resources/google_failed/search_result.png)
+![Google kötü arama sonuçları](post_resources/google_failed/search_result.png)
 
 
 ### Buradaki Sorun Ne?

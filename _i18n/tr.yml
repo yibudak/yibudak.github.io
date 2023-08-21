@@ -1,0 +1,44 @@
+header_description: "Python & Odoo Geliştirme Günlüğü"
+paginator_previous: "Önce"
+paginator_pages: "Sayfa: "
+paginator_next: "Sonra"
+notification_404: "Page not found :("
+post_write_date: "Yazı Tarihi: "
+post_update_date: "Güncelleme Tarihi: "
+post_categories: "Kategoriler: "
+post_tags: "Etiketler: "
+post_previous: "Önceki Yazı: "
+post_next: "Sonraki Yazı: "
+
+# Blog Posts
+posts:
+  proxychains: "Proxychains Hakkında Her Şey"
+  devilbox: "Devilbox Kurulumu ve Kullanımı"
+  twint: "Python ile Twitter Scraping (Twint)"
+  aiohttp: "Python'da En Hızlı Şekilde Veri Çekme"
+  google: "Google ve Algoritmasındaki Büyük Problem"
+
+# Page Titles
+pages:
+  main_title: "Python & Odoo Geliştirme Günlüğü"
+  404: "404 - Sayfa Bulunamadı"
+  about: "Hakkında & İletişim"
+  categories: "Kategoriler"
+  code_snippets: "Kod Parçacıkları"
+  tags: "Etiketler"
+  index: "Blog"
+
+# Tags
+Proxy: "Proxy"
+Devilbox: "Devilbox"
+Twint: "Twint"
+LAMP: "LAMP"
+Requests: "Requests"
+Web: "Web"
+Scraping: "Scraping"
+Python: "Python"
+Twitter: "Twitter"
+Blog: "Blog"
+Google: "Google"
+Tools: "Tools"
+Daily: "Daily"

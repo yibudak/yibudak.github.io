@@ -1,14 +1,15 @@
 <div class="header-info">
   <span class="header-info-name"><a href="/">{{ site.title }}</a></span>
-  <span class="header-info-desc">{{ site.description }}</span>
+  <span class="header-info-desc">{% t header_description %}</span>
+
 </div>
 <nav class="header-nav">
   <ul class="header-main-nav">
-    {% for item in site.data.menus %}
-    <li class="header-main-nav-item"><a
-        href="{% if item.absoluteUrl != true %}{{ site.baseurl }}/{% endif %}{{ item.url }}">{% if item.default %}{{ site.data.lang[site.language][item.default] }}{% else %}{{ item.title }}{% endif %}</a>
-      {% if forloop.last == false %}<div class="seperator"></div>{% else %}<div class="seperator-clear"></div>{% endif %}
+    <li class="header-main-nav-item"><a href="{% tl index %}">{% t pages.index %}</a>
     </li>
-    {% endfor %}
+    <li class="header-main-nav-item"><a href="{% tl categories %}">{% t pages.categories %}</a>
+    </li>
+    <li class="header-main-nav-item"><a href="{% tl about %}">{% t pages.about %}</a>
+    </li>
   </ul>
 </nav>

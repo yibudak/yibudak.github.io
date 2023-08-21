@@ -1,12 +1,14 @@
 ---
 layout: default
-title: Categories
-permalink: /categories
+title: categories
+namespace: categories
+permalink: /kategoriler
+permalink_en: /categories
 ---
 
 <article class="page-container">
   <div class="categories-title">
-    <h1>{{ site.data.lang[site.language].categories_title }}</h1>
+    <h1>{% t pages.categories %}</h1>
   </div>
   <ul class="categories-list">
     {% assign sorted_categs = site.categories | sort:"" %}
@@ -19,7 +21,11 @@ permalink: /categories
       <div class="category-list-item">
       <span><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></span>
       <span class="category-list-item-date float-right">
-        {{ post.date | date: "%b %e, %Y" }}
+        {% if site.lang == "tr" %}
+        {{ post.date | date: "%d.%m.%Y" }}
+        {% elsif site.lang == "en" %}
+        {{ post.date | date: "%Y-%m-%d" }}
+        {% endif %}
       </span>
     </div>
       {% endif %}
