@@ -18,12 +18,12 @@ timezone: Europe/Istanbul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Yiğit Budak # the main title
+title: Ahmet Yiğit Budak # the main title
 
 tagline: Python & Odoo Development Diary # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  This is a personal blog of Yiğit Budak. He writes about Python and Odoo development.
+  This is a personal blog of Ahmet Yiğit Budak. He writes about Python and Odoo development.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: "https://yibudak.github.io"
@@ -34,7 +34,7 @@ github:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: Yiğit Budak
+  name: Ahmet Yiğit Budak
   email: yigit@altinkaya.com.tr # change to your email address
   links:
     - https://github.com/yibudak
